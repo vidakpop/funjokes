@@ -49,7 +49,7 @@ st.markdown("""
 
 # Hardcoded video (using a sample video or you can replace with your own)
 def get_sample_video():
-    video_path = "your_video.mp4"
+    video_path = "fun.webm"
     cap = cv2.VideoCapture(video_path)
     frames = []
     while cap.isOpened():
