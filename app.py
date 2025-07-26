@@ -5,13 +5,12 @@ from time import sleep
 
 def resize_image(image, new_width=100):
     (old_height, old_width) = image.shape[:2]
-    aspect_ratio = old_width /old_height
+    aspect_ratio = old_width / old_height
     new_height = int(new_width / aspect_ratio)
-    return cv2.resize
+    return cv2.resize(image, (new_width, new_height))
 
-def pixel_to_ascii(pixel_value,ascii_chars):
-    return ascii_chars[pixel_value * len(ascii_chars) //256 ]
-
+def pixel_to_ascii(pixel_value, ascii_chars):
+    return ascii_chars[pixel_value * len(ascii_chars) // 256]
 
 def frame_to_ascii(frame, ascii_chars="@%#*+=-:. "):
     # Convert to grayscale
@@ -63,3 +62,9 @@ def video_to_ascii(video_path, output_width=100, fps=10):
         cap.release()
 
 if __name__ == "__main__":
+    # Example usage
+    video_path = input("Enter video file path: ")
+    output_width = int(input("Enter ASCII output width (default 100): ") or "100")
+    fps = int(input("Enter playback FPS (default 10): ") or "10")
+    
+    video_to_ascii(video_path, output_width, fps)
