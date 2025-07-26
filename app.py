@@ -49,15 +49,16 @@ st.markdown("""
 
 # Hardcoded video (using a sample video or you can replace with your own)
 def get_sample_video():
-    # This is a placeholder - in a real app, you would use a real video file
-    # For demo purposes, we'll generate a synthetic video
-    video_frames = []
-    for i in range(30):
-        img = np.zeros((100, 100, 3), dtype=np.uint8)
-        cv2.putText(img, f"Frame {i+1}", (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
-        video_frames.append(img)
-    return video_frames
-
+    video_path = "your_video.mp4"
+    cap = cv2.VideoCapture(video_path)
+    frames = []
+    while cap.isOpened():
+        ret, frame = cap.read()
+        if not ret:
+            break
+        frames.append(frame)
+    cap.release()
+    return frames
 # ASCII conversion functions
 def resize_image(image, new_width=100):
     (old_height, old_width) = image.shape[:2]
