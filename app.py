@@ -35,19 +35,15 @@ st.markdown("""
         font-size: 6px;
         color: #FFFFFF;
         background-color: #000000;
-        padding: 0;
+        padding: 5px;
         overflow: hidden;
         text-align: center;
-        margin: 0;
-        width: 100vw;
-        height: 100vh;
+        margin: 0 auto;
+        width: 100%;
+        height: 80vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000;
     }
     .footer {
         color: #888888;
@@ -116,9 +112,9 @@ def main():
             
             # Control playback speed
             time.sleep(0.05)  # Faster playback for smoother animation
-    
-    # Footer
-    st.markdown('<div class="footer">Press R to restart | © CYBERJIUTSU SYSTEMS</div>', unsafe_allow_html=True)
+        
+        # Footer
+        st.markdown('<div class="footer">Press R to restart | © CYBERJIUTSU SYSTEMS</div>', unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
